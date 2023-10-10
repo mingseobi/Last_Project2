@@ -1,40 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>친구 추가</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>도서 추가</title>
+    <!-- 부트스트랩 CSS 파일 가져오기 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="my.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">친구 추가</a>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">도서 추가</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">[Home]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="add.html">[Add]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="edit.html">[Edit]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="view.html">[list]</a>
+                </li>
+                
+            </ul>
+        </div>
     </nav>
-    <div class="container mt-4">
-        <h1>친구 추가</h1>
-        <form id="addFriendForm">
+    
+    <!-- 페이지 내용 (도서 추가 폼) -->
+    <div class="container">
+        <h1>도서 추가</h1>
+        
+        <form id="add-book-form" onsubmit="return validateForm()">
             <div class="form-group">
-                <label for="name">이름</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <label for="title">도서명:</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="도서명">
             </div>
             <div class="form-group">
-                <label for="relationship">관계</label>
-                <input type="text" class="form-control" id="relationship" name="relationship" required>
+                <label for="author">저자:</label>
+                <input type="text" class="form-control" id="author" name="author" placeholder="저자">
             </div>
             <div class="form-group">
-                <label for="phoneNumber">전화번호</label>
-                <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                <label for="publisher">출판사:</label>
+                <input type="text" class="form-control" id="publisher" name="publisher" placeholder="출판사">
             </div>
             <div class="form-group">
-                <label for="email">이메일</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <label for="publication-year">출판년도:</label>
+                <input type="text" class="form-control" id="publication-year" name="publication-year" placeholder="출판년도">
             </div>
             <button type="submit" class="btn btn-primary">추가</button>
         </form>
+        
+        <script>
+            function validateForm() {
+                // 필수 필드 검사
+                var title = document.getElementById("title").value;
+                var author = document.getElementById("author").value;
+                var publisher = document.getElementById("publisher").value;
+                var publicationYear = document.getElementById("publication-year").value;
+        
+                if (title === "" || author === "" || publisher === "" || publicationYear === "") {
+                    alert("모든 필수 항목을 입력하세요.");
+                    return false; // 폼 제출을 중지
+                }
+        
+                // 모든 필수 항목이 입력되었을 때 추가 메시지를 표시하고, 폼을 제출
+                alert("게시물이 추가됩니다!");
+        
+                // index.html로 리디렉션
+                window.location.href = "index.html";
+            }
+        </script>
+      </div>
     </div>
+
+    <!-- 부트스트랩 JS 및 jQuery 가져오기 (선택 사항) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="validation.js"></script> <!-- 필수 항목에 대한 Validation Check를 위한 JavaScript 파일 -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+        <p>GitHub -> <a href="https://github.com"> My Account</a> by <a href="https://github.com/mingseobi">@mingseobi</a>.</p>
+        <p class="mb-0">
+          <a href="index.html">Back to hp</a>
+        </p>
+    </footer>
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
