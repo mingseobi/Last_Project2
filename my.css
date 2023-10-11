@@ -1,0 +1,13 @@
+/* my.css */
+
+/* 네비게이션 바 내부의 네비게이션 링크 스타일 */
+.navbar-nav .nav-link {
+    color: blue !important; /* 파란색 텍스트 */
+    background-color: white !important; /* 흰색 배경 */
+}
+
+/* 선택된(활성화된) 네비게이션 링크 스타일 */
+.navbar-nav .nav-item.active .nav-link {
+    color: blue !important; /* 활성화된 항목의 텍스트 색상을 파란색으로 유지 */
+    
+}
